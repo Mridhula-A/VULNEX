@@ -1,0 +1,25 @@
+
+# Vulnerability Scanner - Dependencies
+
+# Network Scanning
+python-nmap==0.7.1
+scapy==2.8.0
+
+# NVD CVE API
+requests==2.34.2
+
+# PDF Reporting (for future export support)
+reportlab==5.1.0
+
+# Web Backend
+Flask>=3.0,<4.0
+
+# Network Scanning
+python-nmap==0.7.1
+scapy==2.8.0
+
+# NVD CVE API
+requests==2.34.2
+
+# PDF Reporting
+reportlab==5.1.0

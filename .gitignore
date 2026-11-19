@@ -1,0 +1,27 @@
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Local configuration
+config.json
+
+# Local database and scan data
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated reports
+exports/*
+!exports/.gitkeep
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
