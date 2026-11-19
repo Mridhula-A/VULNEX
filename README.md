@@ -8,6 +8,26 @@ Built with Python and Flask, VULNEX combines network scanning capabilities, serv
 
 ---
 
+---
+
+## 🖥️ Dashboard Preview
+
+Get a quick look at the VULNEX Security Intelligence Center.
+
+<p align="center">
+  <img
+    src="Vulnerability-Scanner.png"
+    alt="VULNEX Security Intelligence Center Dashboard"
+    width="100%"
+  />
+</p>
+
+<p align="center">
+  <i>VULNEX – Scan. Analyze. Assess. Secure.</i>
+</p>
+
+---
+
 ## 🚀 Key Features
 
 | Feature               | Description                                                 |
