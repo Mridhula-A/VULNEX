@@ -1,66 +1,75 @@
-# VULNEX – Security Intelligence Center
+# 🛡️ VULNEX – Security Intelligence Center
 
-**VULNEX** is a Python-based web vulnerability assessment tool designed to help users identify exposed network ports, detect running services, analyze potential security risks, and retrieve related vulnerability intelligence.
+### Scan. Analyze. Assess. Secure.
 
-The application combines network scanning technologies, NVD CVE intelligence, risk analysis, SQLite database storage, and downloadable security reports through an interactive web dashboard.
+**VULNEX** is a Python-based vulnerability assessment platform designed to identify exposed network services, analyze potential security risks, retrieve vulnerability intelligence and generate structured security reports through a modern web dashboard.
 
-**Purpose:** Educational and authorized security assessment.
+Built with Python and Flask, VULNEX combines network scanning capabilities, service detection, CVE intelligence and risk assessment into one centralized security interface.
 
-## Features
+---
 
-### Network Scanning
-- TCP port scanning using Python socket connections.
-- Optional Nmap service and version detection.
-- Optional Scapy-based TCP SYN scanning.
-- Single-host scanning.
-- CIDR network discovery using Nmap.
+## 🚀 Key Features
 
-### Vulnerability Intelligence
-- NVD CVE API integration.
-- Service and product-based CVE lookup.
-- CVE severity analysis using available CVSS information.
-- Risk assessment of detected services.
-- Security findings and severity summaries.
+| Feature               | Description                                                 |
+| --------------------- | ----------------------------------------------------------- |
+| 🔍 TCP Port Scanning  | Identifies open ports using Python socket-based scanning    |
+| 🌐 Network Discovery  | Supports CIDR-based host discovery through Nmap             |
+| 🧩 Service Detection  | Identifies services and versions using Nmap                 |
+| 📡 Packet Analysis    | Optional Scapy-based SYN packet checks                      |
+| 🛡️ CVE Intelligence  | Retrieves vulnerability information through the NVD API     |
+| ⚠️ Risk Assessment    | Analyzes discovered findings and their security severity    |
+| 📊 Security Dashboard | Displays scan statistics, results and security insights     |
+| 📜 Scan History       | Stores previous scan records using SQLite                   |
+| 📄 Report Generation  | Exports assessment reports in PDF, CSV and JSON formats     |
+| 👁️ Report Preview    | Allows users to preview scan reports through the dashboard  |
+| ⚡ Background Scanning | Executes scan jobs in the background with progress tracking |
 
-### Security Dashboard
-- Interactive Flask-based web interface.
-- Scan progress monitoring.
-- Dashboard statistics and risk charts.
-- Recent scan activity.
-- Scan history and individual scan details.
-- Report preview.
+---
 
-### Reporting and Storage
-- SQLite database for persistent scan history.
-- PDF report generation.
-- CSV report generation.
-- JSON report generation.
+## 🖥️ Technology Stack
 
-## Technology Stack
+| Category                   | Technologies            |
+| -------------------------- | ----------------------- |
+| Programming Language       | Python                  |
+| Backend Framework          | Flask                   |
+| Frontend                   | HTML5, CSS3, JavaScript |
+| UI Framework               | Bootstrap 5             |
+| Network Scanning           | Python Socket, Nmap     |
+| Packet Analysis            | Scapy                   |
+| Vulnerability Intelligence | NVD CVE API 2.0         |
+| Database                   | SQLite                  |
+| Report Generation          | ReportLab, CSV, JSON    |
+| Development Environment    | Visual Studio Code      |
+| Browser Support            | Chrome, Firefox, Edge   |
 
-| Component | Technology |
-|---|---|
-| Programming Language | Python |
-| Backend | Flask |
-| Frontend | HTML5, CSS3, JavaScript |
-| UI Framework | Bootstrap 5 |
-| Database | SQLite |
-| Network Scanning | Python Sockets |
-| Additional Scanning | Nmap, Scapy |
-| Vulnerability Intelligence | NVD CVE API 2.0 |
-| Report Generation | ReportLab, CSV, JSON |
-| Visualization | Chart.js |
+---
 
-## Project Structure
+## ⚙️ How VULNEX Works
+
+VULNEX follows a structured vulnerability assessment workflow:
+
+1. **Target Input** – The user enters an IP address, hostname or supported CIDR network range.
+2. **Authorization** – The user confirms that they are authorized to assess the target.
+3. **Network Scanning** – TCP socket checks and supported scanning tools identify accessible services.
+4. **Service Detection** – Nmap helps identify running services and their versions.
+5. **CVE Lookup** – Discovered service information can be used to retrieve relevant vulnerability intelligence from the NVD API.
+6. **Risk Assessment** – Findings are analyzed and categorized by severity.
+7. **Result Storage** – Scan information is stored in the SQLite database.
+8. **Report Generation** – Results can be previewed and exported into PDF, CSV and JSON formats.
+
+---
+
+## 🏗️ Project Architecture
 
 ```text
-Vulnerability-Scanner/
+VULNEX/
 │
 ├── app.py
 ├── main.py
 ├── config.py
 ├── requirements.txt
 ├── README.md
+├── .gitignore
 │
 ├── database/
 │   └── db_manager.py
@@ -79,9 +88,6 @@ Vulnerability-Scanner/
 ├── reports/
 │   └── report_generator.py
 │
-├── utils/
-│   └── validators.py
-│
 ├── templates/
 │   └── index.html
 │
@@ -91,123 +97,126 @@ Vulnerability-Scanner/
 │   └── js/
 │       └── script.js
 │
+├── utils/
+│   └── validators.py
+│
+├── gui/
+│   └── dashboard.py
+│
 ├── data/
-├── database/
 └── exports/
 ```
 
-## Requirements
+---
 
-- Python 3.10 or later.
-- Nmap installed and available in PATH (required for CIDR network discovery).
-- Npcap on Windows for Scapy packet operations.
-- Appropriate privileges for packet-based SYN scanning.
-- Internet access for NVD vulnerability lookups.
+## 💻 Installation & Setup
 
-Socket-based TCP scanning does not require administrator privileges.
+### 1. Clone the Repository
 
-## Installation – Windows
+```bash
+git clone https://github.com/YOUR-USERNAME/VULNEX.git
+```
 
-Clone or download the project and open PowerShell in the project directory.
+### 2. Navigate to the Project Directory
 
-```powershell
-cd Vulnerability-Scanner
+```bash
+cd VULNEX
+```
 
-py -m venv .venv
+### 3. Create a Virtual Environment
 
-.venv\Scripts\Activate.ps1
+```bash
+python -m venv venv
+```
 
-python -m pip install --upgrade pip
+Activate it on Windows:
 
+```bash
+venv\Scripts\activate
+```
+
+### 4. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-If PowerShell blocks virtual environment activation:
+### 5. Install Nmap
 
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+Install Nmap separately if you want to use its network discovery and service detection features.
 
-.venv\Scripts\Activate.ps1
-```
+Official website: [https://nmap.org/download.html](https://nmap.org/download.html)
 
-## Running VULNEX
+### 6. Run the Application
 
-Start the Flask application:
-
-```powershell
+```bash
 python app.py
 ```
 
-Open your browser and visit:
+### 7. Open the Dashboard
 
-**http://127.0.0.1:5000**
+Visit the following address in your browser:
 
-To stop the application, press `Ctrl + C` in the terminal.
+```text
+http://127.0.0.1:5000
+```
 
-## Nmap Configuration
+---
 
-Nmap is used for service detection and CIDR network discovery.
+## 📊 Report Formats
 
-Download Nmap:
+VULNEX supports multiple report formats to make assessment results easier to review and share.
 
-https://nmap.org/download.html
+- **PDF:** Structured vulnerability assessment reports.
+- **CSV:** Tabular scan findings for spreadsheet analysis.
+- **JSON:** Structured results for further processing and integration.
 
-Ensure the Nmap executable is available through the system PATH.
+---
 
-The socket scanner can still be used independently when Nmap is unavailable, although network discovery requires Nmap.
+## 🔐 Security & Responsible Usage
 
-## NVD API Configuration
+VULNEX is developed for educational purposes and authorized security assessments.
 
-VULNEX integrates with the National Vulnerability Database (NVD) CVE API 2.0.
+- Scan only systems and networks for which you have explicit permission.
+- Do not use the tool to access or disrupt unauthorized systems.
+- Keep API credentials and sensitive configuration outside public repositories.
+- Handle scan results and discovered network information responsibly.
+- Ensure that third-party tools are installed and configured correctly.
 
-An optional NVD API key can be configured to improve request limits.
+**Disclaimer:** The developer is not responsible for misuse, unauthorized scanning or damage caused by improper use of this software.
 
-Request an API key:
+---
 
-https://nvd.nist.gov/developers/request-an-api-key
+## 🔮 Future Enhancements
 
-The key is stored locally through the application's configuration. Do not publish or share configuration files containing API credentials.
+Potential areas for future development include:
 
-## Application Workflow
+- Advanced vulnerability correlation.
+- Enhanced network visualization.
+- Additional scanning modules.
+- Improved vulnerability prioritization.
+- Advanced reporting and assessment analytics.
+- User authentication and access management.
 
-1. Enter an authorized target IP address, hostname, or supported network range.
-2. Configure the ports to assess.
-3. Select the required scanning engines.
-4. Confirm authorization to scan the target.
-5. Initiate the security assessment.
-6. Monitor scan progress.
-7. Review detected services and potential CVE matches.
-8. Examine risk summaries and scan history.
-9. Preview and export assessment reports.
+---
 
-## Report Formats
+## 👩‍💻 Project Information
 
-VULNEX supports three report formats:
+**Project Name:** VULNEX – Security Intelligence Center
+**Project Category:** Cybersecurity / Vulnerability Assessment
+**Project Type:** Python-Based Web Application
+**Primary Language:** Python
 
-- **PDF:** Readable security assessment report.
-- **CSV:** Structured data for spreadsheet analysis.
-- **JSON:** Machine-readable assessment results.
+---
 
-## Security and Responsible Use
+## ⭐ Support
 
-VULNEX is intended exclusively for systems owned by the user or systems for which explicit authorization has been granted.
+If you find VULNEX interesting, consider giving this repository a ⭐ on GitHub.
 
-- Never scan systems without permission.
-- Use conservative scanning configurations.
-- Protect API keys and locally stored assessment data.
-- Follow applicable laws and organizational security policies.
+Contributions, suggestions and constructive feedback are welcome!
 
-## Limitations
+---
 
-- An open port does not automatically indicate a vulnerability.
-- CVE matches are potential candidates and may contain false positives.
-- Exact product versions, configurations, and affected-version ranges must be independently verified.
-- NVD lookup results depend on API availability and network connectivity.
-- Scapy packet operations depend on suitable privileges and packet-capture support.
-- Scan results are assessment indicators, not proof that a system is secure or vulnerable.
+\<p align="center">   \<b>VULNEX – Security Intelligence Center\</b>\<br>   \<i>Detect Vulnerabilities. Strengthen Security.\</i> \</p>
 
-## Disclaimer
-
-VULNEX is an educational security assessment project. It is not a replacement for professional penetration testing, comprehensive vulnerability management, or independent security audits.
-
-**Use responsibly. Scan only with proper authorization.**
+\<p align="center">   Built with Python and a passion for Cybersecurity. 💜 \</p>
