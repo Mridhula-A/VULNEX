@@ -216,7 +216,5 @@ If you find VULNEX interesting, consider giving this repository a ⭐ on GitHub.
 Contributions, suggestions and constructive feedback are welcome!
 
 ---
-
-\<p align="center">   \<b>VULNEX – Security Intelligence Center\</b>\<br>   \<i>Detect Vulnerabilities. Strengthen Security.\</i> \</p>
-
-\<p align="center">   Built with Python and a passion for Cybersecurity. 💜 \</p>
+Built with Python and a passion for Cybersecurity. 💜 
+Developed by Mridhula A
